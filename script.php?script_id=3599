@@ -1,0 +1,464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <link rel="Stylesheet" type="text/css" href="/css/style.css" >
+  <title>Auto Pairs - Insert or delete brackets, parens, quotes in pair. : vim online</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="KEYWORDS" content="Vim, Vi IMproved, text editor, home, documentation, tips, scripts, news">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/vim_shortcut.ico">
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#ffffff"> 
+
+<!-- HEADER, SPONSOR IMAGE, VIM IMAGE AND BOOK AD -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+  <td class="lightbg">&nbsp;&nbsp;&nbsp;</td>
+  <td class="lightbg" align="left"><a href="/sponsor/index.php"><img src="/images/sponsorvim.gif" alt="sponsor Vim development" border="0"></a></td>
+    <td class="lightbg" align="center"><a href="/"><img src="/images/vim_header.gif" border="0" alt="Vim logo"></a></td>
+    <td class="lightbg" align="right"><a href="http://iccf-holland.org/click5.html"><img src="/images/buyhelplearn.gif" alt="Vim Book Ad" border="0"></a></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="lightbg"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="darkbg"><img src="/images/spacer.gif" width="1" height="10" alt=""></td>
+  </tr>
+</table>
+<!-- THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <col width="180">
+  <col width="1">
+
+  <tr valign="top">
+    <td class="sidebar">
+      <table width="180" cellpadding="4" cellspacing="0" border="0">
+        <tr valign="top">
+          <td class="sidebar">
+
+<!-- INCLUDE THE PAGE NAVIGATION -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+    <tr>
+        <td><small>not logged in (<a href="/login.php">login</a>)</small></td>
+    </tr>
+    <tr><td>
+<small>&nbsp;</small>
+<form action="http://www.google.com/cse" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-3005259998294962:bvyni59kjr1" />
+    <input type="hidden" name="ie" value="ISO-8859-1" />
+    <input type="text" name="q" size="20" />
+    <br>
+    <input type="submit" name="sa" value="Search" />
+  </div>
+</form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+    </td></tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="1"></td>
+    </tr>
+    <tr>
+        <td class="darkbg"><img src="/images/spacer.gif" alt='' border="0" height="3"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="2"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/">Home</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/search.php">Advanced search</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/about.php">About Vim</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/community.php">Community</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/news/news.php">News</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/sponsor/index.php">Sponsoring</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/trivia.php">Trivia</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/docs.php">Documentation</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader download"><a href="/download.php">Download</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/scripts/index.php">Scripts</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/tips/index.php">Tips</a></td>
+        </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/account/index.php">My Account</a></td>
+        </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+    <tr>
+        <td class="checker"><img src="/images/spacer.gif" alt='' border="0" height="1"></td>
+    </tr>
+    <tr>
+        <td><img src="/images/spacer.gif" alt="" border="0" width="1" height="7"></td>
+    </tr>
+        <tr>
+            <td class="sidebarheader"><a href="/huh.php">Site Help</a></td>
+        </tr>
+</table>
+<br>
+<g:plusone></g:plusone>
+
+            <table width="172" cellpadding="0" cellspacing="0" border="0">
+              <tr><td><img src="/images/spacer.gif" alt="" border="0" width="1" height="8"></td></tr>
+              <tr><td class="darkbg"><img src="/images/spacer.gif" width="1" height="3" alt=""></td></tr>
+            </table>
+            <br>
+
+<!-- INCLUDE THE PAGE SIDEBAR TEXT -->
+&nbsp;
+
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td class="darkbg"><img src="/images/spacer.gif" width="1" height="1" border="0" alt=""><br></td>
+    <td>
+      <table width="100%" cellpadding="10" cellspacing="0" border="0" bordercolor="red">
+        <tr>
+          <td valign="top">
+
+<span class="txth1">Auto Pairs : Insert or delete brackets, parens, quotes in pair.</span> 
+
+<br>
+<br>
+
+<!-- karma table -->
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>&nbsp;script karma&nbsp;</b></td>
+  <td>
+    Rating <b>169/60</b>,
+    Downloaded by 4833    &nbsp;
+    <g:plusone></g:plusone>
+  </td>
+  <td class="lightbg">
+  <b>&nbsp;Comments, bugs, improvements&nbsp;</b>
+  </td>
+  <td>
+    <a href="http://vim.wikia.com/wiki/Script:3599">Vim wiki</a>
+  </td>  
+</tr>
+</table>
+<p>
+
+<table cellspacing="0" cellpadding="0" border="0">
+<tr><td class="prompt">created by</td></tr>
+<tr><td><a href="/account/profile.php?user_id=17938">Miao Jiang</a></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">script type</td></tr>
+<tr><td>utility</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">description</td></tr>
+<tr><td>Repository: <a target="_blank" href="https://github.com/jiangmiao/auto-pairs">https://github.com/jiangmiao/auto-pairs</A><br><br>Auto Pairs<br>==========<br>Insert or delete brackets, parens, quotes in pair.<br><br>Installation<br>------------<br>copy plugin/auto-pairs.vim to ~/.vim/plugin<br><br>or if you are using `pathogen`:<br><br>```git clone <a target="_blank" href="git://github.com/jiangmiao/auto-pairs.git">git://github.com/jiangmiao/auto-pairs.git</A> ~/.vim/bundle/auto-pairs```<br><br>Features<br>--------<br>*&nbsp;&nbsp; Insert in pair<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: [|]<br><br>*&nbsp;&nbsp; Delete in pair<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: foo[&lt;BS&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: foo<br><br>*&nbsp;&nbsp; Insert new indented line after Return<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: {|} (press &lt;CR&gt; at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>*&nbsp;&nbsp; Insert spaces before closing characters, only for [], (), {}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: {|} (press &lt;SPACE&gt; at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: { | }<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: {|} (press &lt;SPACE&gt;foo} at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: { foo }|<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: '|' (press &lt;SPACE&gt; at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: ' |'<br><br>*&nbsp;&nbsp; Skip ' when inside a word<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: foo| (press ' at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: foo'<br><br>*&nbsp;&nbsp; Skip closed bracket.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: []<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: []<br><br>*&nbsp;&nbsp; Ignore auto pair when previous character is \<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: &quot;&#039<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: &quot;&#039&quot;<br><br>*&nbsp;&nbsp; Fast Wrap<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: |'hello' (press (&lt;M-e&gt; at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: ('hello')<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wrap string, only support c style string<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: |'h\\el&#039lo' (press (&lt;M-e&gt; at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output ('h\\ello&#039')<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: |[foo, bar()] (press (&lt;M-e&gt; at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: ([foo, bar()])<br><br>*&nbsp;&nbsp; Quick jump to closed pair.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;something;|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(press } at |)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}|<br><br>*&nbsp;&nbsp; Support ``` ''' and &quot;&quot;&quot;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'''|'''<br><br>*&nbsp;&nbsp; Delete Repeated Pairs in one time<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: &quot;&quot;&quot;|&quot;&quot;&quot; (press &lt;BS&gt; at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: |<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: {{|}} (press &lt;BS&gt; at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: |<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: [[[[[[|]]]]]] (press &lt;BS&gt; at |)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: |<br><br>*&nbsp;&nbsp;Fly Mode<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input: if(a[3)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: if(a[3])| (In Fly Mode)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output: if(a[3)]) (Without Fly Mode)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello();|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;world();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(press } at |)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;world();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}|<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(then press &lt;M-b&gt; at | to do backinsert)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello();}|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;world();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See Fly Mode section for details<br><br>Fly Mode<br>--------<br>Fly Mode will always force closed-pair jumping instead of inserting. only for &quot;)&quot;, &quot;}&quot;, &quot;]&quot;<br><br>If jumps in mistake, could use AutoPairsBackInsert(Default Key: `&lt;M-b&gt;`) to jump back and insert closed pair.<br><br>the most situation maybe want to insert single closed pair in the string, eg &quot;)&quot;<br><br>Fly Mode is DISABLED by default.<br><br>add **let g:AutoPairsFlyMode = 1** .vimrc to turn it on<br><br>Default Options:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;let g:AutoPairsFlyMode = 0<br>&nbsp;&nbsp;&nbsp;&nbsp;let g:AutoPairsShortcutBackInsert = '&lt;M-b&gt;'<br><br>Shortcuts<br>---------<br><br>&nbsp;&nbsp;&nbsp;&nbsp;System Shortcuts:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CR&gt;&nbsp;&nbsp;: Insert new indented line after return if cursor in blank brackets or quotes.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;BS&gt;&nbsp;&nbsp;: Delete brackets in pair<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;M-p&gt; : Toggle Autopairs (g:AutoPairsShortcutToggle)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;M-e&gt; : Fast Wrap (g:AutoPairsShortcutFastWrap)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;M-n&gt; : Jump to next closed pair (g:AutoPairsShortcutJump)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;M-b&gt; : BackInsert (g:AutoPairsShortcutBackInsert)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;If &lt;M-p&gt; &lt;M-e&gt; or &lt;M-n&gt; conflict with another keys or want to bind to another keys, add<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let g:AutoPairShortcutToggle = '&lt;another key&gt;'<br><br>&nbsp;&nbsp;&nbsp;&nbsp;to .vimrc, if the key is empty string '', then the shortcut will be disabled.<br><br>Options<br>-------<br>*&nbsp;&nbsp; g:AutoPairs<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default: {'(':')', '[':']', '{':'}',&quot;'&quot;:&quot;'&quot;,'&quot;':'&quot;', '`':'`'}<br><br>*&nbsp;&nbsp; b:AutoPairs<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default: g:AutoPairs<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buffer level pairs set.<br><br>*&nbsp;&nbsp; g:AutoPairsShortcutToggle<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default: '&lt;M-p&gt;'<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The shortcut to toggle autopairs.<br><br>*&nbsp;&nbsp; g:AutoPairsShortcutFastWrap<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default: '&lt;M-e&gt;'<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fast wrap the word. all pairs will be consider as a block (include &lt;&gt;).<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(|)'hello' after fast wrap at |, the word will be ('hello')<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(|)&lt;hello&gt; after fast wrap at |, the word will be (&lt;hello&gt;)<br><br>*&nbsp;&nbsp; g:AutoPairsShortcutJump<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default: '&lt;M-n&gt;'<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jump to the next closed pair<br><br>*&nbsp;&nbsp; g:AutoPairsMapBS<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default : 1<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map &lt;BS&gt; to delete brackets, quotes in pair<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;execute 'inoremap &lt;buffer&gt; &lt;silent&gt; &lt;BS&gt; &lt;C-R&gt;=AutoPairsDelete()&lt;CR&gt;'<br><br>*&nbsp;&nbsp; g:AutoPairsMapCR<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default : 1<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map &lt;CR&gt; to insert a new indented line if cursor in (|), {|} [|], '|', &quot;|&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;execute 'inoremap &lt;buffer&gt; &lt;silent&gt; &lt;CR&gt; &lt;C-R&gt;=AutoPairsReturn()&lt;CR&gt;'<br><br>*&nbsp;&nbsp; g:AutoPairsCenterLine<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default : 1<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When g:AutoPairsMapCR is on, center current line after return if the line is at the bottom 1/3 of the window.<br><br>*&nbsp;&nbsp; g:AutoPairsMapSpace<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default : 1<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map &lt;space&gt; to insert a space after the opening character and before the closing one.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;execute 'inoremap &lt;buffer&gt; &lt;silent&gt; &lt;CR&gt; &lt;C-R&gt;=AutoPairsSpace()&lt;CR&gt;'<br><br>*&nbsp;&nbsp; g:AutoPairsFlyMode<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default : 0<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set it to 1 to enable FlyMode.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;see FlyMode section for details.<br><br>*&nbsp;&nbsp; g:AutoPairsShortcutBackInsert<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default : &lt;M-b&gt;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Work with FlyMode, insert the key at the Fly Mode jumped postion<br><br>Buffer Level Pairs Setting<br>--------------------------<br><br>Set b:AutoPairs before BufEnter<br><br>eg:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&quot; When the filetype is FILETYPE then make AutoPairs only match for parenthesis<br>&nbsp;&nbsp;&nbsp;&nbsp;au Filetype FILETYPE let b:AutoPairs = {&quot;(&quot;: &quot;)&quot;}<br><br>TroubleShooting<br>---------------<br>&nbsp;&nbsp;&nbsp;&nbsp;The script will remap keys ([{'&quot;}]) &lt;BS&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;If auto pairs cannot work, use :imap ( to check if the map is corrected.<br>&nbsp;&nbsp;&nbsp;&nbsp;The correct map should be &lt;C-R&gt;=AutoPairsInsert(&quot;\(&quot;)&lt;CR&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;Or the plugin conflict with some other plugins.<br>&nbsp;&nbsp;&nbsp;&nbsp;use command :call AutoPairsInit() to remap the keys.<br><br><br>* How to insert parens purely<br><br>&nbsp;&nbsp;&nbsp;&nbsp;There are 3 ways<br><br>&nbsp;&nbsp;&nbsp;&nbsp;1. use Ctrl-V ) to insert paren without trigger the plugin.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;2. use Alt-P to turn off the plugin.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;3. use DEL or &lt;C-O&gt;x to delete the character insert by plugin.<br><br><br>Known Issues<br>-----------------------<br>There are the issues I cannot fix.<br><br>Breaks '.' - [issue #3](<a target="_blank" href="https://github.com/jiangmiao/auto-pairs/issues/3">https://github.com/jiangmiao/auto-pairs/issues/3</A>)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Description: After entering insert mode and inputing `[hello` then leave insert<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mode by `&lt;ESC&gt;`. press '.' will insert 'hello' instead of '[hello]'.<br>&nbsp;&nbsp;&nbsp;&nbsp;Reason: `[` actually equals `[]\&lt;LEFT&gt;` and \&lt;LEFT&gt; will break '.'<br>&nbsp;&nbsp;&nbsp;&nbsp;Solution: none<br><br>Contributors<br>------------<br>* [camthompson](<a target="_blank" href="https://github.com/camthompson">https://github.com/camthompson</A>)</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="prompt">install details</td></tr>
+<tr><td>copy plugin/auto-pairs.vim to ~/.vim/plugin<br><br>or if you are using `pathogen`:<br><br>```git clone <a target="_blank" href="git://github.com/jiangmiao/auto-pairs.git">git://github.com/jiangmiao/auto-pairs.git</A> ~/.vim/bundle/auto-pairs```<br></td></tr>
+<tr><td>&nbsp;</td></tr>
+</table>
+
+<!-- rating table -->
+<form name="rating" method="post">
+<input type="hidden" name="script_id" value="3599">
+<table cellpadding="4" cellspacing="0" border="1" bordercolor="#000066">
+<tr>
+  <td class="lightbg"><b>rate this script</b></td>
+  <td valign="middle">
+    <input type="radio" name="rating" value="life_changing">Life Changing
+    <input type="radio" name="rating" value="helpful">Helpful
+    <input type="radio" name="rating" value="unfulfilling">Unfulfilling&nbsp;
+    <input type="submit" value="rate">
+  </td>
+</tr>
+</table>
+</form>
+<span class="txth2">script versions</span> (<a href="add_script_version.php?script_id=3599">upload new version</a>)
+<p>
+Click on the package to download.
+<p>
+
+<table cellspacing="2" cellpadding="4" border="0" width="100%">
+<tr class='tableheader'>
+        <th valign="top">package</th>
+    <th valign="top">script version</th>
+    <th valign="top">date</th>
+    <th valign="top">Vim version</th>
+    <th valign="top">user</th>
+    <th valign="top">release notes</th>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=20536">auto-pairs-v1.3.2.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.3.2</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2013-07-17</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Try to use abbreviation before using space mapping<br>&lt;c-h&gt; now behaves the same as &lt;BS&gt;</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=19736">auto-pairs-v1.3.1.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.3.1</b></td>
+    <td class="roweven" valign="top" nowrap><i>2013-03-31</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">Fix #33: character '|' map failed.<br>Fix #35: Fast Wrap incorrect.<br>Improve #36, Keep quotes number is odd in one line.<br>Improve #37, ignore comment line for vim file.<br>Improve #43, &lt;CR&gt; mapping compatible.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=19517">auto-pairs-v1.3.0.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.3.0</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2013-02-16</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Auto insert triple pairs.<br>Support deleting repeated pairs in one time.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=19376">auto-pairs-v1.2.9.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.2.9</b></td>
+    <td class="roweven" valign="top" nowrap><i>2013-01-15</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">Supports buffer level pairs setting.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=19204">auto-pairs-v1.2.8.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.2.8</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2012-12-18</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">fixes incorrect AutoPairsDelete.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=18935">auto-pairs-v1.2.7.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.2.7</b></td>
+    <td class="roweven" valign="top" nowrap><i>2012-11-02</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">fixes #24 when equalprg is set 'Return' feature cannot work well</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=18820">auto-pairs-v1.2.6.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.2.6</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2012-10-17</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Support typographer's quote pairs, such as ‘ ’, “ ”</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=18602">auto-pairs-v1.2.5.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.2.5</b></td>
+    <td class="roweven" valign="top" nowrap><i>2012-09-15</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">Fixes indentation incorrect when returning below 1/3 bottom of window.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=18415">auto-pairs-v1.2.4.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.2.4</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2012-08-16</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">fixes #20 Errors in pair creation that is split by ENTER</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=18265">auto-pairs-v1.2.3.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.2.3</b></td>
+    <td class="roweven" valign="top" nowrap><i>2012-07-15</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">compatible with neocomplcache<br>compatible with clang_complete<br>Improve Fast Wrap<br></td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=17980">auto-pairs-v1.2.2.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.2.2</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2012-05-16</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">compatible with vim-endwise, supertab. <br>Disable Fly mode by default.</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=17949">auto-pairs-v1.2.0.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.2.0</b></td>
+    <td class="roweven" valign="top" nowrap><i>2012-05-14</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">New feature: Fly Mode</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=17636">auto-pairs-v1.1.6.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.1.6</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2012-03-22</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">fixes issue #9 Lowercase 'a' acute accent via opt-e not working<br>fixes issue #8 having errors with the double quotes when cpoptions is $<br>avoid overriding imap silent flag<br>always silent mapping<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=17557">auto-pairs-v1.1.5.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.1.5</b></td>
+    <td class="roweven" valign="top" nowrap><i>2012-03-03</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">works with vim-endwise</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=17235">auto-pairs-v1.1.4.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.1.4</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2012-01-17</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Avoid ' in word, eg: John's <br>Support `<br>Support triple quote, ''', &quot;&quot;&quot;, ```</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=17100">auto-pairs-v1.1.3.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.1.3</b></td>
+    <td class="roweven" valign="top" nowrap><i>2011-12-22</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">NEW: quick jump to the closed pair<br>NEW: auto insert space<br></td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=16858">auto-pairs-v1.1.2.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.1.2</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2011-11-13</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Fix autopairs isn't loaded when open new tab by mouse.<br>Optimize delete in pair</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=16469">auto-pairs-v1.1.1.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.1.1</b></td>
+    <td class="roweven" valign="top" nowrap><i>2011-09-05</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">Fix auto indent incorrect in CoffeeScript<br>eg:<br>&nbsp;&nbsp;foo:<br>&nbsp;&nbsp;&nbsp;&nbsp;bar: [|]<br>press &lt;CR&gt; at |</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=15867">auto-pairs-v1.1.0.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.1.0</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2011-06-13</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">fix indent incorrect after {\&lt;CR&gt;}<br>use &lt;expr&gt; instead of &lt;C-R&gt; in map keys</td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=15845">auto-pairs-v1.0.3.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.0.3</b></td>
+    <td class="roweven" valign="top" nowrap><i>2011-06-09</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">Add Fast Wrap feature.</td>
+</tr>
+<tr>
+        <td class="rowodd" valign="top" nowrap><a href="download_script.php?src_id=15834">auto-pairs-v1.0.2.tar.gz</a></td>
+    <td class="rowodd" valign="top" nowrap><b>1.0.2</b></td>
+    <td class="rowodd" valign="top" nowrap><i>2011-06-07</i></td>
+    <td class="rowodd" valign="top" nowrap>7.0</td>
+    <td class="rowodd" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="rowodd" valign="top" width="2000">Use {&lt;enter&gt; instead of {{ (Thanks to linopolus)<br><a target="_blank" href="https://github.com/jiangmiao/auto-pairs/issues/1">https://github.com/jiangmiao/auto-pairs/issues/1</A><br><br>Add Toggle key<br>Add Options<br>&nbsp;&nbsp;g:AutoPairsShortcutToggle<br>&nbsp;&nbsp;g:AutoPairsMapBS<br>&nbsp;&nbsp;g:AutoPairsMapCR<br>&nbsp;&nbsp;g:AutoPairsCenterLine<br></td>
+</tr>
+<tr>
+        <td class="roweven" valign="top" nowrap><a href="download_script.php?src_id=15708">auto-pairs-1.0.1.tar.gz</a></td>
+    <td class="roweven" valign="top" nowrap><b>1.0.1</b></td>
+    <td class="roweven" valign="top" nowrap><i>2011-05-24</i></td>
+    <td class="roweven" valign="top" nowrap>7.0</td>
+    <td class="roweven" valign="top"><i><a href="/account/profile.php?user_id=17938">Miao Jiang</a></i></td>
+    <td class="roweven" valign="top" width="2000">Initial upload</td>
+</tr>
+</table>
+<small>ip used for rating: 123.59.147.243</small>
+<!-- finish off the framework -->
+          </td>
+        </tr>
+      </table>
+    </td>
+
+  </tr>
+</table>
+
+<!-- END OF THE PAGE BODY: BETWEEN HEADER AND FOOTER -->
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bordercolor="red">
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr><td colspan="4" bgcolor="#000000"><img src="/images/spacer.gif" height="2" width="1" alt=""></td></tr>
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td></tr>
+  <tr>
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+
+    <td align="left" valign="top"><small>
+      If you have questions or remarks about this site, visit the
+      <a href="http://vimonline.sf.net">vimonline development</a> pages.
+      Please use this site responsibly.
+      <br> 
+      
+      Questions about <a href="http://www.vim.org/about.php">Vim</a> should go
+      to the <a href="http://www.vim.org/maillist.php">maillist</a>.
+      Help Bram <a href="http://iccf-holland.org/">help Uganda</a>.
+      </small>
+	&nbsp;
+	&nbsp;
+
+    </td>
+
+    <td align="right" valign="top">
+      	<a href="http://sourceforge.net/projects/vim" rel="nofollow"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=8&type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>
+    </td>
+
+    <td><img src="/images/spacer.gif" width="5" height="1" alt=""></td>
+  </tr>
+
+    
+  <tr><td colspan="4"><img src="/images/spacer.gif" width="1" height="5" alt=""></td>
+  
+  </tr>
+</table>
+
+<!-- for Google +1 button -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+</body>
+</html>
+
